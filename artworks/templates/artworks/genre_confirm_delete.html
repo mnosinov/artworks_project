@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Genre: {{object.title}}{% endblock %}
+
+{% block subheader %}
+{% endblock %}
+
+{% block content %}
+  <h1>Delete Genre: {{object.title}}</h1>
+
+	<form action="" method="post">
+		{% csrf_token %}
+		<p>The following Genre will be deleted. All related childs will be set to NULL in  genre field. Are you sure?</p>
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					ID:
+				</div>
+				<div class="col-sm">{{ object.id }}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Title:
+				</div>
+				<div class="col-sm">{{ object.title }}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Art Work Type:
+				</div>
+				<div class="col-sm">{{ object.artwork_type }}</div>
+			</div>
+		</div>
+		<hr>
+    <button type="submit" class="btn btn-danger">Delete</button>
+		<a href="{% url 'genres' %}" class="btn btn-secondary">Cancel</a>
+	</form>
+
+{% endblock %}

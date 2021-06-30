@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Edit Genre ID: {{ object.pk }}{% endblock %}
+
+{% block subheader %}
+{% endblock %}
+
+{% block content %}
+  <h1>Edit Genre ID: {{ object.pk }}</h1>
+	<form method="post">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<button type="submit" class="btn btn-success">Save</button>
+		<a href="{% url 'genres' %}" class="btn btn-secondary">Cancel</a>
+	</form>
+{% endblock %}

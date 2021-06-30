@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django_resized import ResizedImageField
 
 from django.utils.translation import gettext as _
@@ -19,11 +20,16 @@ class ArtworkType(models.TextChoices):
 
 
 class Genre(models.Model):
+    class Meta:
+        ordering = ('artwork_type',)
     artwork_type = models.CharField(max_length=30, choices=ArtworkType.choices)
     title = models.CharField(max_length=200)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('genre-detail-view', args=[str(self.id)])
 
 
 class Artwork(models.Model):

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}Genres{% endblock %}
+
+{% block subheader %}
+{% endblock %}
+
+{% block content %}
+  <h1>Genres</h1>
+	<table class="styled_table">
+		<thead>
+			<tr>
+				<th>TITLE</th>
+				<th>TYPE</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if genre_list %}
+					{% for genre in genre_list %}
+					<tr>
+						<td>
+							{{ genre.title }}
+						</td>
+						<td>
+							{{genre.artwork_type}}
+						</td>
+						<td>
+							<a href="{{ genre.get_absolute_url }}">View</a> | 
+							<a href="{% url 'genre-update' pk=genre.pk %}">Update</a> | 
+							<a href="{% url 'genre-delete' pk=genre.pk %}">Delete</a>
+						</td>
+					</tr>
+					{% endfor %}
+			{% else %}
+				<p>There are no genres.</p>
+			{% endif %}
+		</tbody>
+	</table>
+{% endblock %}

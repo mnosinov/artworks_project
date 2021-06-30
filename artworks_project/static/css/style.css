@@ -213,3 +213,25 @@ p { margin-top: 5px; }
 /*input.search { border: 1px solid #ccc; padding: 4px; width: 160px; }*/
 .comment { background: #FFF; color: #808080; padding: 10px; margin: 0 0 10px 0; border-top: 1px solid #ccc; }
 .commentsbox { background: #FFF; color: #808080; padding: 10px; margin: 0 0 10px 0; border-top: 1px solid #ccc; }
+
+.styled_table {
+  border-collapse: collapse;
+/*  width: 100%; */
+}
+
+.styled_table td, .styled_table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.styled_table tr:nth-child(even){background-color: #f2f2f2;}
+
+.styled_table tr:hover {background-color: #ddd;}
+
+.styled_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #075c1c;
+  color: white;
+}

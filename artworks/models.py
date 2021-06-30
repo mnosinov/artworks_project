@@ -15,7 +15,6 @@ class Author(models.Model):
         return reverse('author-detail-view', args=[str(self.id)])
 
 
-
 class ArtworkType(models.TextChoices):
     PAINTING = 'PAINTING', _('Painting')
     MUSIC = 'MUSIC', _('Music')
@@ -48,6 +47,9 @@ class Artwork(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('artwork-detail-view', args=[str(self.id)])
 
 
 class Painting(models.Model):

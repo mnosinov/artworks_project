@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import index, InsertSampleDataView, \
     GenreListView, GenreDetailView, GenreUpdateView, GenreDeleteView, GenreCreateView, \
-    AuthorListView, AuthorDetailView, AuthorUpdateView, AuthorDeleteView, AuthorCreateView
+    AuthorListView, AuthorDetailView, AuthorUpdateView, AuthorDeleteView, AuthorCreateView, \
+    ArtworkListView, ArtworkDetailView, ArtworkUpdateView, ArtworkDeleteView, ArtworkCreateView
 
 urlpatterns = [
     path('', index, name='index'),
@@ -16,4 +17,9 @@ urlpatterns = [
     path('authors/<int:pk>/view', AuthorDetailView.as_view(), name='author-detail-view'),
     path('authors/<int:pk>/update', AuthorUpdateView.as_view(), name='author-update'),
     path('authors/<int:pk>/delete', AuthorDeleteView.as_view(), name='author-delete'),
+    path('artworks', ArtworkListView.as_view(), name='artworks'),
+    path('artworks/create', ArtworkCreateView.as_view(), name='artwork-create'),
+    path('artworks/<int:pk>/view', ArtworkDetailView.as_view(), name='artwork-detail-view'),
+    path('artworks/<int:pk>/update', ArtworkUpdateView.as_view(), name='artwork-update'),
+    path('artworks/<int:pk>/delete', ArtworkDeleteView.as_view(), name='artwork-delete'),
 ]

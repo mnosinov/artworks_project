@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Artworks{% endblock %}
+
+{% block subheader %}
+{% endblock %}
+
+{% block content %}
+	<table class="styled_table">
+		<caption>
+			<div class="d-flex justify-content-between">
+				<h1>Artworks</h1>
+				<a href="{% url 'artwork-create' %}" class="btn btn-warning">Add Artwork</a>
+			</div>
+		</caption>
+		<thead>
+			<tr>
+				<th>TITLE</th>
+				<th>TYPE</th>
+				<th>GENRE</th>
+				<th>AUTHOR</th>
+				<th>PUBLISHED IN</th>
+				<th>PRICE</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if artwork_list %}
+					{% for artwork in artwork_list %}
+					<tr>
+						<td>
+							{{ artwork.title }}
+						</td>
+						<td>
+							{{ artwork.type }}
+						</td>
+						<td>
+							{{ artwork.genre }}
+						</td>
+						<td>
+							{{ artwork.author }}
+						</td>
+						<td>
+							{{ artwork.pub_year }}
+						</td>
+						<td class="text-right">
+							{{ artwork.price }}$
+						</td>
+						<td>
+							<a href="{{ artwork.get_absolute_url }}">View</a> | 
+							<a href="{% url 'artwork-update' pk=artwork.pk %}">Update</a> | 
+							<a href="{% url 'artwork-delete' pk=artwork.pk %}">Delete</a>
+						</td>
+					</tr>
+					{% endfor %}
+			{% else %}
+				<p>There are no artworks.</p>
+			{% endif %}
+		</tbody>
+	</table>
+{% endblock %}

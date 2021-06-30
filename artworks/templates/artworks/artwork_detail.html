@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Artwork: {{object.title}}{% endblock %}
+
+{% block subheader %}
+{% endblock %}
+
+{% block content %}
+  <h1>Artwork: {{object.title}}</h1>
+
+	<hr>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 text-right font-weight-bold">
+				ID:
+			</div>
+			<div class="col-sm">{{ object.id }}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 text-right font-weight-bold">
+				Title:
+			</div>
+			<div class="col-sm">{{ object.title }}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 text-right font-weight-bold">
+				Type:
+			</div>
+			<div class="col-sm">{{ object.type }}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 text-right font-weight-bold">
+				Genre:
+			</div>
+			<div class="col-sm">{{ object.genre }}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 text-right font-weight-bold">
+				Author:
+			</div>
+			<div class="col-sm">{{ object.author }}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 text-right font-weight-bold">
+				Published in:
+			</div>
+			<div class="col-sm">{{ object.pub_year }}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 text-right font-weight-bold">
+				Price:
+			</div>
+			<div class="col-sm">{{ object.price }}$</div>
+		</div>
+	</div>
+	<hr>
+	<a href="{% url 'artworks' %}" class="btn btn-primary">Back to List</a>
+{% endblock %}

@@ -15,7 +15,7 @@ class ArtworkType(models.TextChoices):
     PAINTING = 'PAINTING', _('Painting')
     MUSIC = 'MUSIC', _('Music')
     MOVIE = 'MOVIE', _('Movie')
-    BOOK = 'BOOK', _('BooK')
+    BOOK = 'BOOK', _('Book')
 
 
 class Genre(models.Model):
@@ -53,18 +53,18 @@ class Painting(models.Model):
 class Book(models.Model):
     artwork = models.OneToOneField(Artwork, on_delete=models.CASCADE, primary_key=True)
     pages = models.IntegerField()
-    cover = ResizedImageField(upload_to='books/covers/%Y/%m/%d')
+    cover = ResizedImageField(upload_to='books/covers/%Y/%m/%d', null=True, blank=True)
 
     def __str__(self):
         return 'book ' + self.artwork.title
 
 
 class Media(models.Model):
-    class MediaType(models.TextChoices):
+    class Type(models.TextChoices):
         MUSIC = 'MUSIC', _('Music')
         VIDEO = 'VIDEO', _('Video')
     artwork = models.OneToOneField(Artwork, on_delete=models.CASCADE, primary_key=True)
-    media_type = models.CharField(max_length=10, choices=MediaType.choices)
+    media_type = models.CharField(max_length=10, choices=Type.choices)
     duration = models.DurationField()
 
     def __str__(self):

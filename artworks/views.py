@@ -97,3 +97,6 @@ class ArtworkUpdateView(UpdateView):
 class ArtworkDeleteView(DeleteView):
     model = Artwork
     success_url = reverse_lazy('artworks')
+
+
+# TODO TODO now add multistep wizard form for artwork -----------------------------------------------

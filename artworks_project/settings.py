@@ -29,7 +29,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 debug_str_from_dotenv = os.getenv('DEBUG_MODE')
 DEBUG = debug_str_from_dotenv == 'True'
 
-allowed_hosts_list = str(os.getenv('ALLOWED_HOSTS'))
+allowed_hosts_list = str(os.getenv('ALLOWED_HOSTS_LIST'))
 ALLOWED_HOSTS = [host.strip() for host in allowed_hosts_list.split(",")]
 
 

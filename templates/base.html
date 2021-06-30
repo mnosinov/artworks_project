@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{% block title %}{% endblock %} </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="screen" />
+</head>
+<body>
+<div id="wrap">
+
+	{% block header %}
+  <div id="top">
+    <div class="rights"> </div>
+    <div id="search"> </div>
+    <div class="lefts">
+      <h1>ArtWorks</h1>
+      <h2>My Django formtools sample</h2>
+    </div>
+  </div>
+  <div id="topmenu">
+    <div class="rights"></div>
+    <div class="lefts">
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ART WORKS</a></li>
+        <li><a href="#">GENRES</a></li>
+        <li><a href="#">AUTHORS</a></li>
+      </ul>
+    </div>
+  </div>
+	{% endblock %}
+
+	{% block subheader %}
+  <div id="subheader"> <strong>text</strong> text text</div>
+	{% endblock %}
+
+	{% block messages %}
+		{% include 'inc/messages.html' %}
+	{% endblock %}
+
+  <div id="main">
+	{% block content %}
+	{% endblock %}
+  </div>
+
+	{% block footer %}
+  <div id="footer">
+    <div class="rside">&copy; Copyright 2021, <a href="#">artworks.org</a><br /></div>
+    <p><a href="#">HOME</a></p>
+  </div>
+	{% endblock %}
+</div>
+</body>
+</html>

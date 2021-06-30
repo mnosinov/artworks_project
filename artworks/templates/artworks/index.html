@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Index Page {% endblock %}
+
+{% block subheader %}
+<div id="subheader">
+	<strong>Insert Sample Data</strong> populates some sample data into the database.<br>
+	To login to <strong>Django admin panel</strong> use login:<strong>admin</strong> and password:<strong>admin123</strong>.<br>
+</div>
+{% endblock %}
+
+{% block content %} 
+<h2>Index:</h2>
+<div>
+	<ul>
+		<li><a href="{% url 'insert-sample-data' %}">Insert Sample Data</a></li>
+		<li><a href="/admin">Go to Django admin panel</a></li>
+	</ul>
+</div>
+{% endblock %}

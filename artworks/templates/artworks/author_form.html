@@ -2,7 +2,7 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %}Edit Genre ID: {{ object.pk }}{% endblock %}
+{% block name %}Edit Author ID: {{ object.pk }}{% endblock %}
 
 {% block subheader %}
 {% endblock %}
@@ -10,14 +10,14 @@
 {% block content %}
   <h1>
 		{% if not object %}
-			Add Genre
+			Add Author
 		{% else %}
-			Edit Genre ID: {{ object.pk }}
+			Edit Author ID: {{ object.pk }}
 		{% endif %}
 	</h1>
 	<form method="post">
 		{% csrf_token %}
-
+		
 		{% for error in form.non_field_errors %}
 			{{ error }}
 		{% endfor %}
@@ -31,6 +31,6 @@
 				Update
 			{% endif %}
 		</button>
-		<a href="{% url 'genres' %}" class="btn btn-secondary">Cancel</a>
+		<a href="{% url 'authors' %}" class="btn btn-secondary">Cancel</a>
 	</form>
 {% endblock %}

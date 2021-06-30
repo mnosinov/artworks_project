@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib import messages
 
 from .insertdatahelper import InserDataHelper
-from .models import Genre
+from .models import Genre, Author
 
 
 def index(request):
@@ -44,3 +44,28 @@ class GenreUpdateView(UpdateView):
 class GenreDeleteView(DeleteView):
     model = Genre
     success_url = reverse_lazy('genres')
+
+
+class AuthorListView(ListView):
+    model = Author
+
+
+class AuthorDetailView(DetailView):
+    model = Author
+
+
+class AuthorCreateView(CreateView):
+    model = Author
+    fields = ('name',)
+    success_url = reverse_lazy('authors')
+
+
+class AuthorUpdateView(UpdateView):
+    model = Author
+    fields = ('name',)
+    success_url = reverse_lazy('authors')
+
+
+class AuthorDeleteView(DeleteView):
+    model = Author
+    success_url = reverse_lazy('authors')

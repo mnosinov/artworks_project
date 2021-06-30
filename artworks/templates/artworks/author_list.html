@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block name %}Authors{% endblock %}
+
+{% block subheader %}
+{% endblock %}
+
+{% block content %}
+	<table class="styled_table">
+		<caption>
+			<div class="d-flex justify-content-between">
+				<h1>Authors</h1>
+				<a href="{% url 'author-create' %}" class="btn btn-warning">Add Author</a>
+			</div>
+		</caption>
+		<thead>
+			<tr>
+				<th>NAME</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% if author_list %}
+					{% for author in author_list %}
+					<tr>
+						<td>
+							{{ author.name }}
+						</td>
+						<td>
+							<a href="{{ author.get_absolute_url }}">View</a> | 
+							<a href="{% url 'author-update' pk=author.pk %}">Update</a> | 
+							<a href="{% url 'author-delete' pk=author.pk %}">Delete</a>
+						</td>
+					</tr>
+					{% endfor %}
+			{% else %}
+				<p>There are no authors.</p>
+			{% endif %}
+		</tbody>
+	</table>
+{% endblock %}

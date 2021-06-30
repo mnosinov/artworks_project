@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block name %}Author: {{object.name}}{% endblock %}
+
+{% block subheader %}
+{% endblock %}
+
+{% block content %}
+  <h1>Author: {{object.name}}</h1>
+
+	<hr>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 text-right font-weight-bold">
+				ID:
+			</div>
+			<div class="col-sm">{{ object.id }}</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 text-right font-weight-bold">
+				Name:
+			</div>
+			<div class="col-sm">{{ object.name }}</div>
+		</div>
+	</div>
+	<hr>
+	<a href="{% url 'authors' %}" class="btn btn-primary">Back to List</a>
+{% endblock %}

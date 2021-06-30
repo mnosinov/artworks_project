@@ -3,6 +3,8 @@ from .views import index, InsertSampleDataView, \
     GenreListView, GenreDetailView, GenreUpdateView, GenreDeleteView, GenreCreateView, \
     AuthorListView, AuthorDetailView, AuthorUpdateView, AuthorDeleteView, AuthorCreateView, \
     ArtworkListView, ArtworkDetailView, ArtworkUpdateView, ArtworkDeleteView, ArtworkCreateView
+from .preview import GenreFormPreview
+from .forms import GenreForm
 
 urlpatterns = [
     path('', index, name='index'),
@@ -22,4 +24,6 @@ urlpatterns = [
     path('artworks/<int:pk>/view', ArtworkDetailView.as_view(), name='artwork-detail-view'),
     path('artworks/<int:pk>/update', ArtworkUpdateView.as_view(), name='artwork-update'),
     path('artworks/<int:pk>/delete', ArtworkDeleteView.as_view(), name='artwork-delete'),
+    # formtools FormPreview
+    path('genres/formtools-preview', GenreFormPreview(GenreForm), name='genre-formtools-preview'),
 ]

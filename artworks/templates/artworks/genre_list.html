@@ -11,6 +11,7 @@
 			<div class="d-flex justify-content-between">
 				<h1>Genres</h1>
 				<a href="{% url 'genre-create' %}" class="btn btn-warning">Add Genre</a>
+				<a href="{% url 'genre-formtools-preview' %}" class="btn btn-warning">Add Genre (formtools-FormPreview)</a>
 			</div>
 		</caption>
 		<thead>
@@ -18,6 +19,7 @@
 				<th>TITLE</th>
 				<th>TYPE</th>
 				<th></th>
+				<th>formtools</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,6 +36,9 @@
 							<a href="{{ genre.get_absolute_url }}">View</a> | 
 							<a href="{% url 'genre-update' pk=genre.pk %}">Update</a> | 
 							<a href="{% url 'genre-delete' pk=genre.pk %}">Delete</a>
+						</td>
+						<td>
+							<a href="{% url 'genre-formtools-preview'  %}?pk={{genre.pk}}">formtools-FormPreview</a>
 						</td>
 					</tr>
 					{% endfor %}

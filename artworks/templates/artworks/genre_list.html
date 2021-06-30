@@ -6,8 +6,13 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Genres</h1>
 	<table class="styled_table">
+		<caption>
+			<div class="d-flex justify-content-between">
+				<h1>Genres</h1>
+				<a href="{% url 'genre-create' %}" class="btn btn-warning">Add Genre</a>
+			</div>
+		</caption>
 		<thead>
 			<tr>
 				<th>TITLE</th>

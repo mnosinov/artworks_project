@@ -31,6 +31,8 @@ class GenreDetailView(DetailView):
 
 class GenreCreateView(CreateView):
     model = Genre
+    fields = ('title', 'artwork_type')
+    success_url = reverse_lazy('genres')
 
 
 class GenreUpdateView(UpdateView):

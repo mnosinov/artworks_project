@@ -235,3 +235,7 @@ p { margin-top: 5px; }
   background-color: #075c1c;
   color: white;
 }
+
+caption {
+	caption-side:top; 
+}

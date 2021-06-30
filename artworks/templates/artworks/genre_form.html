@@ -8,11 +8,26 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Edit Genre ID: {{ object.pk }}</h1>
+  <h1>
+		{% if not object %}
+			Add Genre
+		{% else %}
+			Edit Genre ID: {{ object.pk }}
+		{% endif %}
+	</h1>
 	<form method="post">
 		{% csrf_token %}
+		{% for error in form.non_field_errors %}
+            {{ error }}
+        {% endfor %}
 		{{ form|crispy }}
-		<button type="submit" class="btn btn-success">Save</button>
+		<button type="submit" class="btn btn-success">
+			{% if not object %}
+				Create
+			{% else %}
+				Update
+			{% endif %}
+		</button>
 		<a href="{% url 'genres' %}" class="btn btn-secondary">Cancel</a>
 	</form>
 {% endblock %}

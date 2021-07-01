@@ -2,7 +2,8 @@ from django.urls import path
 from .views import index, InsertSampleDataView, \
     GenreListView, GenreDetailView, GenreUpdateView, GenreDeleteView, GenreCreateView, \
     AuthorListView, AuthorDetailView, AuthorUpdateView, AuthorDeleteView, AuthorCreateView, \
-    ArtworkListView, ArtworkDetailView, ArtworkUpdateView, ArtworkDeleteView, ArtworkCreateView
+    ArtworkListView, ArtworkDetailView, ArtworkUpdateView, ArtworkDeleteView, \
+    ArtworkWizart
 from .preview import GenreFormPreview
 from .forms import GenreForm
 
@@ -20,10 +21,11 @@ urlpatterns = [
     path('authors/<int:pk>/update', AuthorUpdateView.as_view(), name='author-update'),
     path('authors/<int:pk>/delete', AuthorDeleteView.as_view(), name='author-delete'),
     path('artworks', ArtworkListView.as_view(), name='artworks'),
-    path('artworks/create', ArtworkCreateView.as_view(), name='artwork-create'),
     path('artworks/<int:pk>/view', ArtworkDetailView.as_view(), name='artwork-detail-view'),
     path('artworks/<int:pk>/update', ArtworkUpdateView.as_view(), name='artwork-update'),
     path('artworks/<int:pk>/delete', ArtworkDeleteView.as_view(), name='artwork-delete'),
     # formtools FormPreview
     path('genres/formtools-preview', GenreFormPreview(GenreForm), name='genre-formtools-preview'),
+    # formtools Artwork wizard
+    path('artworks/create', ArtworkWizart.as_view(), name='artwork-create-wizard'),
 ]

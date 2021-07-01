@@ -5,8 +5,12 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib import messages
 
+from formtools.wizard.views import SessionWizardView
+
 from .insertdatahelper import InserDataHelper
 from .models import Genre, Author, Artwork
+from .forms import ArtworkForm1, \
+    ArtworkPaintingForm2, ArtworkBookForm2, ArtworkMovieForm2, ArtworkBookForm3
 
 
 def index(request):
@@ -82,12 +86,6 @@ class ArtworkDetailView(DetailView):
     model = Artwork
 
 
-class ArtworkCreateView(CreateView):
-    model = Artwork
-    fields = ('name',)
-    success_url = reverse_lazy('artworks')
-
-
 class ArtworkUpdateView(UpdateView):
     model = Artwork
     fields = ('name',)
@@ -99,4 +97,17 @@ class ArtworkDeleteView(DeleteView):
     success_url = reverse_lazy('artworks')
 
 
-# TODO TODO now add multistep wizard form for artwork -----------------------------------------------
+# multistep wizard form for artwork -----------------------------------------------
+class ArtworkWizart(SessionWizardView):
+    form_list = [
+        ArtworkForm1,
+        ArtworkPaintingForm2, ArtworkBookForm2, ArtworkMovieForm2, ArtworkBookForm3
+    ]
+    template_name = 'artworks/artwork_wizard_single_unified_template.html'
+
+    def done(self, form_list, form_dict, **kwargs):
+        # TODO save data from all of the steps
+        print('-------------------done')
+        messages.success(self.request,
+                         'Artwork successfully saved.')
+        return redirect('artworks')

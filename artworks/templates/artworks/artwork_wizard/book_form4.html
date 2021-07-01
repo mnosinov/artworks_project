@@ -30,7 +30,6 @@
 			{{ wizard.form|crispy }}
 	{% endif %}
 	</table>
-	||{{ form.cover.path }}||
 	{% if wizard.steps.prev %}
 		<button name="wizard_goto_step" type="submit" formnovalidate="formnovalidate" 
 			class="btn btn-secondary" value="{{ wizard.steps.first }}">First step</button>

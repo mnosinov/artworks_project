@@ -16,6 +16,7 @@
 		</caption>
 		<thead>
 			<tr>
+				<th>ID</th>
 				<th>TITLE</th>
 				<th>TYPE</th>
 				<th></th>
@@ -26,6 +27,9 @@
 			{% if genre_list %}
 					{% for genre in genre_list %}
 					<tr>
+						<td>
+							{{ genre.id }}
+						</td>
 						<td>
 							{{ genre.title }}
 						</td>

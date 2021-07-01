@@ -16,6 +16,7 @@ class Author(models.Model):
 
 
 class ArtworkType(models.TextChoices):
+    NONE = '', _('-----------')
     PAINTING = 'PAINTING', _('Painting')
     MUSIC = 'MUSIC', _('Music')
     MOVIE = 'MOVIE', _('Movie')

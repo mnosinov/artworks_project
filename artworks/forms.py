@@ -22,22 +22,32 @@ class ArtworkForm1(forms.Form):
 # step2
 class ArtworkPaintingForm2(forms.Form):
     # genre can be unknown - null
-    genre = forms.ModelChoiceField(queryset=Genre.objects)
+    genre = forms.ModelChoiceField(
+        queryset=Genre.objects.filter(artwork_type=ArtworkType.PAINTING)
+    )
 
 
 class ArtworkMusicForm2(forms.Form):
     # genre can be unknown - null
     genre = forms.ModelChoiceField(queryset=Genre.objects)
+    genre = forms.ModelChoiceField(
+        queryset=Genre.objects.filter(artwork_type=ArtworkType.MUSIC)
+    )
 
 
 class ArtworkMovieForm2(forms.Form):
     # genre can be unknown - null
     genre = forms.ModelChoiceField(queryset=Genre.objects)
+    genre = forms.ModelChoiceField(
+        queryset=Genre.objects.filter(artwork_type=ArtworkType.MOVIE)
+    )
 
 
 class ArtworkBookForm2(forms.Form):
     # genre can be unknown - null
-    genre = forms.ModelChoiceField(queryset=Genre.objects)
+    genre = forms.ModelChoiceField(
+        queryset=Genre.objects.filter(artwork_type=ArtworkType.BOOK)
+    )
 
 
 # step3

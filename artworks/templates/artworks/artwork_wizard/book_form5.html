@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Artwork wizard: Book Price{% endblock %}
+
+{% block subheader %}
+{% endblock %}
+
+{% block content %}
+{{ wizard.form.media }}
+<h2>
+	Adding Book <img src="{% static 'images/book.png' %}" width=20px/>.
+ 	Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}
+</h2>
+<hr>
+<h1>Book Price</h1>
+<p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
+<form action="" method="post">
+	{% csrf_token %}
+	{{ wizard.management_form|crispy }}
+	<div id="div_id_book_form5-price" class="form-group">
+		<label for="id_book_form5-price" class=" requiredField">Price ($)<span class="asteriskField">*</span></label>
+		<div class=""> 
+			<input type="number" name="book_form5-price" class="numberinput form-control"
+				 value="{{ wizard.form.price.value }}"	required id="id_book_form5-price">
+	 	</div>
+	</div>
+
+	</table>
+	{% if wizard.steps.prev %}
+		<button name="wizard_goto_step" type="submit" formnovalidate="formnovalidate" 
+			class="btn btn-secondary" value="{{ wizard.steps.first }}">First step</button>
+		<button name="wizard_goto_step" type="submit" formnovalidate="formnovalidate" 
+			class="btn btn-secondary"  value="{{ wizard.steps.prev }}">Prev step</button>
+	{% endif %}
+	<button type="submit" class="btn btn-primary"  value="submit">Submit</button>
+</form>
+{% endblock %}

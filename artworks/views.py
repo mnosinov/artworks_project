@@ -147,7 +147,7 @@ class ArtworkWizard(SessionWizardView):
     }
     file_storage = FileSystemStorage(location=os.path.join(settings.MEDIA_ROOT, 'book_covers'))
 
-    # conditions 
+    # conditions
     def is_painting(wizard):
         cleaned_data = wizard.get_cleaned_data_for_step('form1') or {'type': 'NONE'}
         return cleaned_data['type'] == ArtworkType.PAINTING
@@ -260,7 +260,7 @@ class ArtworkWizard(SessionWizardView):
             genre = form_dict['book_form2'].cleaned_data['genre']
             price = form_dict['book_form5'].cleaned_data['price']
 
-            book = Media(
+            book = Book(
                 artwork=artwork,
                 pages=form_dict['book_form3'].cleaned_data['pages'],
                 cover=form_dict['book_form4'].cleaned_data['cover'],

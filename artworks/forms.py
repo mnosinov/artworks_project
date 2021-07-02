@@ -52,8 +52,8 @@ class ArtworkBookForm2(forms.Form):
 
 # step3
 class ArtworkPaintingForm3(forms.Form):
-    height = forms.IntegerField()
-    width = forms.IntegerField()
+    height = forms.IntegerField(label='Height (cm)')
+    width = forms.IntegerField(label='Width (cm)')
 
 
 class ArtworkMusicForm3(forms.Form):

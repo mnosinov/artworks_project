@@ -21,6 +21,7 @@
 				<th>AUTHOR</th>
 				<th>PUBLISHED IN</th>
 				<th>PRICE</th>
+				<th>DETAILS</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -47,9 +48,12 @@
 							{{ artwork.price }}$
 						</td>
 						<td>
+							TODO artwork detail by type <!--implement inclusion tag for artwork detail by type and inlude artwork_details_by_type.html-->
+						</td>
+						<td>
 							<a href="{{ artwork.get_absolute_url }}">View</a> | 
 							<a href="{% url 'artwork-update-wizard' pk=artwork.pk %}">Update</a> | 
-							<a href="{% url 'artwork-delete' pk=artwork.pk %}">Delete TODO TODO TODO</a>
+							<a href="{% url 'artwork-delete' pk=artwork.pk %}">Delete</a>
 						</td>
 					</tr>
 					{% endfor %}

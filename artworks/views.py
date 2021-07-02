@@ -88,6 +88,19 @@ class ArtworkListView(ListView):
 class ArtworkDetailView(DetailView):
     model = Artwork
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        artwork = kwargs['object']
+        if artwork.type == ArtworkType.PAINTING:
+            context['painting'] = Painting.objects.get(pk=artwork.id)
+        elif artwork.type == ArtworkType.MUSIC:
+            context['music'] = Media.objects.get(pk=artwork.id)
+        elif artwork.type == ArtworkType.MOVIE:
+            context['movie'] = Media.objects.get(pk=artwork.id)
+        elif artwork.type == ArtworkType.BOOK:
+            context['book'] = Book.objects.get(pk=artwork.id)
+        return context
+
 
 class ArtworkUpdateView(UpdateView):
     model = Artwork
@@ -98,6 +111,20 @@ class ArtworkUpdateView(UpdateView):
 class ArtworkDeleteView(DeleteView):
     model = Artwork
     success_url = reverse_lazy('artworks')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        artwork = kwargs['object']
+        if artwork.type == ArtworkType.PAINTING:
+            context['painting'] = Painting.objects.get(pk=artwork.id)
+        elif artwork.type == ArtworkType.MUSIC:
+            context['music'] = Media.objects.get(pk=artwork.id)
+        elif artwork.type == ArtworkType.MOVIE:
+            context['movie'] = Media.objects.get(pk=artwork.id)
+        elif artwork.type == ArtworkType.BOOK:
+            context['book'] = Book.objects.get(pk=artwork.id)
+        return context
+
 
 
 # multistep wizard form for artwork -----------------------------------------------

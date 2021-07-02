@@ -1,0 +1,98 @@
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					ID:
+				</div>
+				<div class="col-sm">{{ object.id }}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Title:
+				</div>
+				<div class="col-sm">{{ object.title }}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Type:
+				</div>
+				<div class="col-sm">{{ object.type }}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Genre:
+				</div>
+				<div class="col-sm">{{ object.genre }}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Author:
+				</div>
+				<div class="col-sm">{{ object.author }}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Published in:
+				</div>
+				<div class="col-sm">{{ object.pub_year }}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Price:
+				</div>
+				<div class="col-sm">{{ object.price }}$</div>
+			</div>
+
+		{% if object.type == 'PAINTING' %}
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Height:
+				</div>
+				<div class="col-sm">{{ painting.height }} cm</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Width:
+				</div>
+				<div class="col-sm">{{ painting.width }} cm</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Paint:
+				</div>
+				<div class="col-sm">{{ painting.paint }}</div>
+			</div>
+		{% elif object.type == 'BOOK' %}
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Pages:
+				</div>
+				<div class="col-sm">{{ book.pages }}</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Cover:
+				</div>
+				<div class="col-sm">
+					{% if book.cover %}
+						<img src="{{ book.cover.url }}" height="200px" />
+					{% else %}
+						no cover image.
+					{% endif %}
+				</div>
+			</div>
+		{% elif object.type == 'MUSIC' %}
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Duration:
+				</div>
+				<div class="col-sm">{{ music.duration }}(HH:MM:SS)</div>
+			</div>
+		{% elif object.type == 'MOVIE' %}
+			<div class="row">
+				<div class="col-md-3 text-right font-weight-bold">
+					Duration:
+				</div>
+				<div class="col-sm">{{ movie.duration }} (HH:MM:SS)</div>
+			</div>
+		{% endif %}
+		</div>

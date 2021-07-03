@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load artworks_tags %}
 
 {% block title %}Artworks{% endblock %}
 
@@ -48,7 +49,7 @@
 							{{ artwork.price }}$
 						</td>
 						<td>
-							TODO artwork detail by type <!--implement inclusion tag for artwork detail by type and inlude artwork_details_by_type.html-->
+							{% artwork_details artwork_id=artwork.id is_short_mode=True %}
 						</td>
 						<td>
 							<a href="{{ artwork.get_absolute_url }}">View</a> | 
